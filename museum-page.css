@@ -1,0 +1,100 @@
+/* ============================================================
+   museum-page.css
+   Shared styling for warli.html / madhubani.html / kasuti.html
+   Extends style.css — same design language, new layout pieces.
+   ============================================================ */
+
+/* ---------- MUSEUM HERO ---------- */
+.museum-hero{
+  position:relative;min-height:62vh;display:flex;align-items:flex-end;
+  padding:80px 0 60px;overflow:hidden;
+}
+.museum-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.museum-hero-veil{position:absolute;inset:0;background:linear-gradient(180deg, rgba(36,20,7,0.35) 0%, rgba(36,20,7,0.88) 100%);}
+.museum-hero-content{position:relative;z-index:2;color:var(--cream);}
+.museum-hero-tag{font-family:var(--sans);font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.museum-hero-content h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,5vw,4rem);margin-bottom:16px;}
+.museum-hero-content p{font-size:1.05rem;color:rgba(244,236,220,0.8);max-width:600px;}
+.museum-breadcrumb{position:relative;z-index:2;margin-bottom:auto;}
+.museum-breadcrumb a{color:var(--gold);font-size:.82rem;letter-spacing:1px;}
+.museum-breadcrumb a:hover{text-decoration:underline;}
+
+/* ---------- ARTICLE SECTIONS (History / Materials / GI / Symbolism) ---------- */
+.museum-article{max-width:760px;}
+.museum-article h2{font-family:var(--serif);font-size:1.8rem;color:var(--brown);margin-bottom:18px;font-weight:600;}
+.museum-article p{color:var(--ink-soft);font-size:1rem;margin-bottom:16px;}
+.museum-article p:last-child{margin-bottom:0;}
+
+.materials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:24px;}
+.material-pill{background:#fff;border-left:4px solid var(--terracotta);border-radius:6px;padding:16px 18px;box-shadow:var(--shadow);}
+.material-pill h4{font-family:var(--serif);font-size:1rem;color:var(--brown);margin-bottom:4px;}
+.material-pill p{font-size:.86rem;color:var(--ink-soft);margin:0;}
+
+.gi-banner{display:flex;align-items:center;gap:16px;background:#dcebd9;border-radius:var(--radius);
+  padding:20px 24px;margin-top:8px;}
+.gi-banner .gi-icon{font-size:1.8rem;}
+.gi-banner h4{font-family:var(--serif);color:#2f5c33;font-size:1.05rem;margin-bottom:2px;}
+.gi-banner p{color:#3c6b40;font-size:.88rem;margin:0;}
+
+.symbolism-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:24px;}
+.symbolism-card{background:var(--paper);border-radius:var(--radius);padding:22px;}
+.symbolism-card h4{font-family:var(--serif);color:var(--terracotta-deep);font-size:1.05rem;margin-bottom:8px;}
+.symbolism-card p{color:var(--ink-soft);font-size:.88rem;margin:0;}
+
+/* ---------- PHOTO ARCHIVE (compact grid, modal popup) ---------- */
+.photo-archive-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px;
+}
+.photo-archive-item{aspect-ratio:1/1;border-radius:6px;overflow:hidden;cursor:pointer;position:relative;
+  box-shadow:0 4px 14px rgba(58,36,21,0.18);background:var(--beige);}
+.photo-archive-item img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;transition:transform .3s ease;}
+.photo-archive-item:hover img{transform:scale(1.08);}
+.photo-archive-item.img-failed{background:linear-gradient(135deg, var(--terracotta), var(--brown));}
+.photo-archive-item.img-failed::after{content:"🎨";font-size:1.6rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.5;}
+.photo-archive-more{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;
+  background:var(--brown);color:var(--gold);font-size:.78rem;font-weight:700;text-align:center;}
+
+/* Lightbox for photo archive */
+.lightbox-overlay{position:fixed;inset:0;background:rgba(15,8,3,0.94);z-index:3500;
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;padding:24px;}
+.lightbox-overlay.active{opacity:1;pointer-events:all;}
+.lightbox-stage{max-width:80vw;max-height:78vh;position:relative;}
+.lightbox-stage img{max-width:80vw;max-height:78vh;border-radius:6px;display:block;}
+.lightbox-caption{color:#f4ecdc;text-align:center;margin-top:14px;font-size:.88rem;}
+.lightbox-close{position:absolute;top:24px;right:32px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;z-index:1;}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);
+  border:none;color:#fff;font-size:1.8rem;width:48px;height:48px;cursor:pointer;border-radius:50%;
+  transition:background .2s;z-index:1;display:flex;align-items:center;justify-content:center;}
+.lightbox-nav:hover{background:rgba(255,255,255,0.25);}
+.lightbox-prev{left:16px;}
+.lightbox-next{right:16px;}
+
+/* ---------- VIDEO ARCHIVE ---------- */
+.video-archive-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:32px;}
+.video-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;
+  transition:transform .25s ease;}
+.video-card:hover{transform:translateY(-4px);}
+.video-thumb{aspect-ratio:16/9;position:relative;background-size:cover;background-position:center;background-color:var(--brown);}
+.video-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:54px;height:54px;background:rgba(36,20,7,0.75);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;}
+.video-card-body{padding:16px 18px;}
+.video-card-body h4{font-family:var(--serif);font-size:1rem;color:var(--brown);margin-bottom:4px;}
+.video-card-body p{font-size:.82rem;color:var(--ink-soft);margin:0;}
+
+.video-modal-overlay{position:fixed;inset:0;background:rgba(15,8,3,0.94);z-index:3500;
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s;padding:24px;}
+.video-modal-overlay.active{opacity:1;pointer-events:all;}
+.video-modal-box{width:100%;max-width:860px;}
+.video-modal-box iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:6px;}
+.video-modal-close{display:block;margin:14px auto 0;background:none;border:none;color:#fff;font-size:.85rem;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
+
+/* ---------- RELATED PRODUCTS (reuses .product-card from style.css) ---------- */
+.related-products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:32px;}
+
+@media(max-width:700px){
+  .photo-archive-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media(max-width:480px){
+  .photo-archive-grid{grid-template-columns:repeat(2,1fr);}
+}

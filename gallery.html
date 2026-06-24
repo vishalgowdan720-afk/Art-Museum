@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Kala Bhavan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Cormorant:ital,wght@0,400;0,600;1,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="gallery-page.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Kala <span>Bhavan</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#about">About</a>
+      <a href="index.html#collection">Collection</a>
+      <a href="index.html#map">Map</a>
+      <a href="gallery.html" class="active-link">Gallery</a>
+      <a href="index.html#marketplace">Marketplace</a>
+      <a href="index.html#ai-guide">AI Guide</a>
+      <a href="index.html#artists">Artists</a>
+      <a href="index.html#contribute">Contribute</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ============ GALLERY PAGE HERO ============ -->
+<section class="gallery-page-hero">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-light">The Full Archive</p>
+    <h1 class="title-serif title-light">Digital Gallery</h1>
+    <p class="gallery-page-sub">Every photograph and video in the Kala Bhavan collection — searchable, filterable, and growing.</p>
+  </div>
+</section>
+
+<!-- ============ GALLERY CONTROLS + GRID ============ -->
+<section class="section" id="fullGallerySection">
+  <div class="wrap">
+
+    <div class="gallery-controls">
+      <input type="text" id="fullGallerySearch" class="gallery-search" placeholder="Search the entire archive…" />
+      <div class="gallery-filters" id="fullGalleryFilters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="warli">Warli</button>
+        <button class="chip" data-filter="madhubani">Madhubani</button>
+        <button class="chip" data-filter="kasuti">Kasuti</button>
+      </div>
+    </div>
+
+    <p class="gallery-count" id="galleryCount"></p>
+
+    <div class="masonry" id="fullGalleryGrid"><!-- injected by gallery-page.js --></div>
+
+    <p class="gallery-empty" id="galleryEmpty" style="display:none;">No photos match your search.</p>
+  </div>
+</section>
+
+<!-- Image / video viewer (single item, full size) -->
+<div class="viewer-overlay" id="viewerOverlay">
+  <button class="viewer-close" id="viewerClose">×</button>
+  <div class="viewer-stage" id="viewerStage"></div>
+  <p class="viewer-caption" id="viewerCaption"></p>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="brand-footer">Kala <span>Bhavan</span></p>
+      <p class="footer-tag">Preserving Our Roots Through Technology</p>
+    </div>
+    <div>
+      <h5>Team</h5>
+      <p>Engineering Mini Project · 2025–26</p>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <p>heritagebytes.project@example.com</p>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 Kala Bhavan — A student project celebrating Indian indigenous art.</p>
+</footer>
+
+<script src="gallery-data.js"></script>
+<script src="gallery-page.js"></script>
+</body>
+</html>
